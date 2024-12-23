@@ -1,8 +1,10 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
+import AuthContext from '../../context/AuthContext';
 
 const AddArtifacts = () => {
+  const {user} = useContext(AuthContext)
 
   const handleFormSubmit = e =>{
     e.preventDefault()
@@ -170,6 +172,7 @@ const AddArtifacts = () => {
                 <label className="font-medium text-lg">Added By Email</label>
                 <input
                   type="email"
+                  defaultValue={user.email}
                   name="email"
                   className="input input-bordered w-full"
                   required

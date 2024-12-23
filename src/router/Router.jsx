@@ -47,7 +47,7 @@ import PrivetRoutes from "./PrivetRoutes";
             element:<PrivetRoutes><MyArtifacts></MyArtifacts></PrivetRoutes>
         },
         {
-            path:"my-liked-artifacts",
+            path:"my-liked-artifacts/:id",
             element:<PrivetRoutes><MyLikedArtiacts></MyLikedArtiacts></PrivetRoutes>
         },
         {

@@ -1,9 +1,10 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const Details = () => {
   // Use the loader data to fetch the artifact details
   const details = useLoaderData();
+  const {_id}=details
 
   return (
     <div className="container lg:w-2/3 mx-auto p-6">
@@ -35,12 +36,7 @@ const Details = () => {
               <p className="text-sm font-semibold text-gray-500">Added By Email: {details.email}</p>
             </div>
             <div className="mt-4 flex items-center">
-              <button
-                // onClick={handleLikeClick}
-                className="btn btn-primary text-white mr-4"
-              >
-                Like
-              </button>
+              <Link to={`/my-liked-artifacts/${_id}`} className='btn btn-primary'>Like</Link>
               <span className="text-sm text-gray-500"> Likes</span>
             </div>
           </div>
