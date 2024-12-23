@@ -12,13 +12,14 @@ import MyLikedArtiacts from "../pages/myLikedArtifacts/MyLikedArtiacts";
 import Details from "../pages/Details/Details";
 import PrivetRoutes from "./PrivetRoutes";
 import Update from "../pages/update/Update";
+import Error from "../pages/Erro/Error";
 
 
   const Router = createBrowserRouter([
     {
       path: "/",
       element: <Mainlayout></Mainlayout>,
-      errorElement: <h2>Rout not found</h2>,
+      errorElement:<Error></Error>,
       children:[
         {
             path:"/",

@@ -1,43 +1,65 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import AuthContext from '../../context/AuthContext';
 
 const Details = () => {
-  // Use the loader data to fetch the artifact details
+  // Fetch the artifact details using loader data
   const details = useLoaderData();
-  const {_id}=details
+  const { _id } = details;
+  const { user } = useContext(AuthContext);
 
   return (
     <div className="container lg:w-2/3 mx-auto p-6">
-      <h2 className="text-3xl font-bold text-center mb-6">Artifact Details</h2>
+      <h2 className="text-4xl font-extrabold text-center mb-6 text-blue-800">Artifact Details</h2>
 
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-        <div className="flex flex-col sm:flex-row p-6">
+        <div className="flex flex-col lg:flex-row p-6">
           {/* Left Section: Image */}
-          <div className="flex-shrink-0 mb-4 sm:mb-0 sm:w-1/3">
+          <div className="flex-shrink-0 mb-4 lg:mb-0 lg:w-1/3">
             <img
-              src={details.artifactImage} // Fixed variable name here
+              src={details.artifactImage}
               alt={details.artifactName}
-              className="w-full h-64 object-cover rounded-lg"
+              className="w-full h-64 object-cover rounded-lg shadow-md"
             />
           </div>
 
           {/* Right Section: Artifact Details */}
-          <div className="sm:w-2/3 sm:pl-6">
-            <h3 className="text-2xl font-semibold">{details.artifactName}</h3>
-            <p className="text-sm font-semibold text-gray-500 mt-2">Type: {details.artifactType}</p>
-            <p className="text-sm font-semibold text-gray-500 mt-2">Discovered By: {details.discoveredBy}</p>
-            <p className="text-sm font-semibold text-gray-500 mt-2">Created At: {details.createdAt}</p>
-            <p className="text-sm font-semibold text-gray-500 mt-2">Discovered At: {details.discoveredAt}</p>
-            <p className="text-sm  font-semibold text-gray-500 mt-2">Present Location: {details.presentLocation}</p>
-            <p className="text-sm text-gray-500 mt-2">Historical Context: {details.historicalContext}</p>
+          <div className="lg:w-2/3 lg:pl-6">
+            <h3 className="text-3xl font-semibold text-blue-900 mb-2">{details.artifactName}</h3>
+            <p className="text-lg font-medium text-gray-700 mt-2">
+              <span className="font-bold">Type:</span> {details.artifactType}
+            </p>
+            <p className="text-lg font-medium text-gray-700 mt-2">
+              <span className="font-bold">Discovered By:</span> {details.discoveredBy}
+            </p>
+            <p className="text-lg font-medium text-gray-700 mt-2">
+              <span className="font-bold">Created At:</span> {details.createdAt}
+            </p>
+            <p className="text-lg font-medium text-gray-700 mt-2">
+              <span className="font-bold">Discovered At:</span> {details.discoveredAt}
+            </p>
+            <p className="text-lg font-medium text-gray-700 mt-2">
+              <span className="font-bold">Present Location:</span> {details.presentLocation}
+            </p>
+            <p className="text-lg text-gray-700 mt-4">{details.historicalContext}</p>
 
             <div className="mt-4">
-              <p className="text-sm font-semibold text-gray-500">Added By: {details.addedBy}</p>
-              <p className="text-sm font-semibold text-gray-500">Added By Email: {details.email}</p>
+              <p className="text-sm font-medium text-gray-500">
+                <span className="font-bold">Added By:</span> {details.addedBy}
+              </p>
+              <p className="text-sm font-medium text-gray-500">
+                <span className="font-bold">Email:</span> {details.email}
+              </p>
             </div>
-            <div className="mt-4 flex items-center">
-              <Link to={`/my-liked-artifacts/${_id}`} className='btn btn-primary'>Like</Link>
-              <span className="text-sm text-gray-500"> Likes</span>
+
+            <div className="mt-6 flex items-center space-x-4">
+              <Link
+                to={`/my-liked-artifacts/${_id}`}
+                className="px-6 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition"
+              >
+                Like
+              </Link>
+              <span className="text-gray-500 font-medium">Give it a like!</span>
             </div>
           </div>
         </div>
