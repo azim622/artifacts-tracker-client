@@ -38,7 +38,6 @@ const AddArtifacts = () => {
       .catch((error) => {
         console.error('Error:', error);
         // Handle error notification here
-        
       });
 
 

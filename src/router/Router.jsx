@@ -9,6 +9,7 @@ import AllArtifacts from "../pages/AllArtifacts/AllArtifacts";
 import AddArtifacts from "../pages/Add-Artifacts/AddArtifacts";
 import MyArtifacts from "../pages/myArtifacts/MyArtifacts";
 import MyLikedArtiacts from "../pages/myLikedArtifacts/MyLikedArtiacts";
+import Details from "../pages/Details/Details";
 
 
   const Router = createBrowserRouter([
@@ -31,7 +32,8 @@ import MyLikedArtiacts from "../pages/myLikedArtifacts/MyLikedArtiacts";
         },
         {
             path:"allArtifacts",
-            element:<AllArtifacts></AllArtifacts>
+            element:<AllArtifacts></AllArtifacts>,
+            loader: ()=> fetch('http://localhost:5000/artifacts')
         },
         {
             path:"add-artifacts",
@@ -44,6 +46,11 @@ import MyLikedArtiacts from "../pages/myLikedArtifacts/MyLikedArtiacts";
         {
             path:"my-liked-artifacts",
             element:<MyLikedArtiacts></MyLikedArtiacts>
+        },
+        {
+            path:"details/:id",
+            element:<Details></Details>,
+            loader:({params})=>fetch(`http://localhost:5000/artifacts/${params.id}`)
         },
       ]
     },
