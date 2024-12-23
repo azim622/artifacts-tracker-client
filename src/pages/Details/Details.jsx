@@ -6,7 +6,7 @@ const Details = () => {
   const details = useLoaderData();
 
   return (
-    <div className="container w-2/3 mx-auto p-6">
+    <div className="container lg:w-2/3 mx-auto p-6">
       <h2 className="text-3xl font-bold text-center mb-6">Artifact Details</h2>
 
       <div className="bg-white shadow-lg rounded-lg overflow-hidden">

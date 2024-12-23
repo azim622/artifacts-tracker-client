@@ -10,6 +10,7 @@ import AddArtifacts from "../pages/Add-Artifacts/AddArtifacts";
 import MyArtifacts from "../pages/myArtifacts/MyArtifacts";
 import MyLikedArtiacts from "../pages/myLikedArtifacts/MyLikedArtiacts";
 import Details from "../pages/Details/Details";
+import PrivetRoutes from "./PrivetRoutes";
 
 
   const Router = createBrowserRouter([
@@ -37,19 +38,21 @@ import Details from "../pages/Details/Details";
         },
         {
             path:"add-artifacts",
-            element:<AddArtifacts></AddArtifacts>
+            element:<PrivetRoutes>
+              <AddArtifacts></AddArtifacts>
+            </PrivetRoutes>
         },
         {
             path:"my-artifacts",
-            element:<MyArtifacts></MyArtifacts>
+            element:<PrivetRoutes><MyArtifacts></MyArtifacts></PrivetRoutes>
         },
         {
             path:"my-liked-artifacts",
-            element:<MyLikedArtiacts></MyLikedArtiacts>
+            element:<PrivetRoutes><MyLikedArtiacts></MyLikedArtiacts></PrivetRoutes>
         },
         {
             path:"details/:id",
-            element:<Details></Details>,
+            element:<PrivetRoutes><Details></Details></PrivetRoutes>,
             loader:({params})=>fetch(`http://localhost:5000/artifacts/${params.id}`)
         },
       ]

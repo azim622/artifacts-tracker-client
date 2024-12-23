@@ -3,11 +3,13 @@ import lottieLogin from "../../assets/Animation - 1734884750925.json";
 import Lottie from "lottie-react";
 import AuthContext from "../../context/AuthContext";
 import Swal from "sweetalert2";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const { signInUser , signInWithGoogle } = useContext(AuthContext);
   const navigate= useNavigate()
+  const location = useLocation()
+  const hello = location.state || '/';
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -25,7 +27,7 @@ const SignIn = () => {
           title: 'Successfully login',
           text: 'Signed in with Google successfully!',
         });
-        navigate('/');
+        navigate(hello);
       })
       .catch((error) => {
         console.log(error.message);
@@ -46,7 +48,7 @@ const SignIn = () => {
             title: 'Successfully login',
             text: 'Signed in with Google successfully!',
           });
-          navigate('/'); // Redirect to the home page
+          navigate(hello); // Redirect to the home page
         })
         .catch((error) => {
           console.log('Error', error.message);
