@@ -11,6 +11,7 @@ import MyArtifacts from "../pages/myArtifacts/MyArtifacts";
 import MyLikedArtiacts from "../pages/myLikedArtifacts/MyLikedArtiacts";
 import Details from "../pages/Details/Details";
 import PrivetRoutes from "./PrivetRoutes";
+import Update from "../pages/update/Update";
 
 
   const Router = createBrowserRouter([
@@ -45,6 +46,12 @@ import PrivetRoutes from "./PrivetRoutes";
         {
             path:"my-artifacts",
             element:<PrivetRoutes><MyArtifacts></MyArtifacts></PrivetRoutes>
+        },
+        {
+          path: "updateArtifacts/:id",
+          element: <Update></Update>, // Ensure the Update component is functional
+          loader: ({ params }) =>
+            fetch(`http://localhost:5000/artifacts/${params.id}`), // Backend must return the artifact data
         },
         {
             path:"my-liked-artifacts/:id",
