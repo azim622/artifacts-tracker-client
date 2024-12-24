@@ -55,7 +55,7 @@ import Error from "../pages/Erro/Error";
             fetch(`http://localhost:5000/artifacts/${params.id}`), // Backend must return the artifact data
         },
         {
-            path:"my-liked-artifacts/:id",
+            path:"my-liked-artifacts",
             element:<PrivetRoutes><MyLikedArtiacts></MyLikedArtiacts></PrivetRoutes>
         },
         {

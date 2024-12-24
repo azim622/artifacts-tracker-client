@@ -4,7 +4,6 @@ import Lottie from "lottie-react";
 import AuthContext from "../../context/AuthContext";
 import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const SignIn = () => {
   const { signInUser, signInWithGoogle } = useContext(AuthContext);
@@ -22,11 +21,6 @@ const SignIn = () => {
     signInUser(email, password)
       .then((result) => {
         console.log(result.user.email)
-        const user = {email : result.user.email}
-        axios.post('http://localhost:5000/jwt', user, {
-          withCredentials:true
-        })
-        .then(res=> console.log(res.data))
         Swal.fire({
           icon: "success",
           title: "Welcome back!",

@@ -166,6 +166,7 @@ const AddArtifacts = () => {
                 <label className="font-medium text-lg">Added By</label>
                 <input
                   type="text"
+                  defaultValue={user?.displayName}
                   name="addedBy"
                   className="input input-bordered w-full"
                   required

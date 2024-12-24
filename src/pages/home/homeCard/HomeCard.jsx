@@ -7,10 +7,17 @@ const HomeCard = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const URL = "http://localhost:5000/limitArtifacts"; // Endpoint for top 6 artifacts by like count
-      const res = await fetch(URL);
-      const data = await res.json();
-      setArtifacts(data);
+      try {
+        const URL = "http://localhost:5000/limitArtifacts"; // Endpoint for top 6 artifacts
+        const res = await fetch(URL);
+        if (!res.ok) {
+          throw new Error("Failed to fetch artifacts.");
+        }
+        const data = await res.json();
+        setArtifacts(data.slice(0, 6)); // Ensure only 6 artifacts are displayed
+      } catch (error) {
+        console.error("Error fetching featured artifacts:", error);
+      }
     };
     fetchData();
   }, []);

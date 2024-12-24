@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import axios from "axios";
 
@@ -8,15 +8,47 @@ const Details = () => {
   const { _id } = details;
   const { user } = useContext(AuthContext);
   const [likeCount, setLikeCount] = useState(details.likeCount || 0);
+  const [totalLikes , setTotalLikes] = useState([])
+  // const navigate = useNavigate()
+  const {id} = useParams()
+  console.log('total likes',totalLikes)
 
   const handleLike = async () => {
+    const likedData= {
+      artifacts_id : id,
+      userName: user?.displayName,
+      userPhoto: user?.photoURL,
+      userEmail:user?.email
+    }
     try {
-      const response = await axios.put(`http://localhost:5000/artifacts/${_id}/like`);
-      setLikeCount(response.data.likeCount);
+      // const response = await axios.put(`http://localhost:5000/artifacts/${_id}/like`);
+      const response = await axios.post('http://localhost:5000/artifactLiked', likedData)
+      setTotalLikes(response.data.updatedLikes || [...totalLikes, likedData]);
+      // navigate('/my-liked-artifacts')
     } catch (error) {
       console.error("Failed to like the artifact:", error);
     }
   };
+
+  useEffect(()=>{
+    const fetchData = async ()=>{
+      try{
+        const res = await axios.get(`http://localhost:5000/likesCount/${_id}`)
+        const data = await res?.data
+        console.log(data)
+        setTotalLikes(data)
+  
+      }
+      catch (error) {
+        console.error("Failed to like the artifact:", error);
+      }
+    }
+    fetchData()
+
+  },[])
+
+
+
 
   return (
     <div className="container lg:w-2/3 mx-auto p-6 bg-gradient-to-br from-gray-100 to-gray-300 rounded-lg shadow-lg">
@@ -74,12 +106,12 @@ const Details = () => {
               >
                 Like
               </button>
-              <span className="text-gray-500 font-medium">Likes: {likeCount}</span>
+              <span className="text-gray-500 font-medium">Likes: {totalLikes?totalLikes.length:0}</span>
             </div>
 
-            <Link to="/allArtifacts">
+            <Link to="/my-liked-artifacts">
               <button className="mt-6 px-6 py-2 w-full bg-gradient-to-r from-green-500 to-green-700 text-white font-semibold rounded-md shadow-lg hover:scale-105 transition-transform duration-300">
-                Back to All Artifacts
+              My liked Artifacts
               </button>
             </Link>
           </div>
