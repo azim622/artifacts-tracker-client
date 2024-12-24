@@ -25,6 +25,11 @@ const Navbar = () => {
           <li>
             <Link to="/allArtifacts">All Artifacts</Link>
           </li>
+          <li>
+                <Link to="/add-artifacts" >
+                  Add Artifacts
+                </Link>
+              </li>
           {!user && (
             <li>
               <Link to="/login">Login</Link>
@@ -51,11 +56,7 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-white text-black rounded-box w-52"
             >
-              <li>
-                <Link to="/add-artifacts" className="justify-between">
-                  Add Artifacts
-                </Link>
-              </li>
+              
               <li>
                 <Link to="/my-artifacts">My Artifacts</Link>
               </li>

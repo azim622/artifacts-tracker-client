@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
 import AuthContext from '../../context/AuthContext';
+import { Helmet } from 'react-helmet';
 
 const AddArtifacts = () => {
   const {user} = useContext(AuthContext)
@@ -46,6 +47,11 @@ const AddArtifacts = () => {
   }
   return (
     <div className="container mx-auto p-6">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Add Artifacts || Historical Artifacts</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <h2 className="text-3xl font-bold text-center mb-6">Add New Artifact</h2>
 
       <form onSubmit={handleFormSubmit} className="w-full max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">

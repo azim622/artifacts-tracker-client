@@ -7,7 +7,7 @@ const HomeCard = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const URL = "http://localhost:5000/limitArtifacts"; // Assuming this endpoint exists
+      const URL = "http://localhost:5000/limitArtifacts"; // Endpoint for top 6 artifacts by like count
       const res = await fetch(URL);
       const data = await res.json();
       setArtifacts(data);
@@ -49,6 +49,9 @@ const HomeCard = () => {
                 </p>
                 <p className="text-sm text-gray-500">
                   <span className="font-semibold">Created At:</span> {artifact.createdAt}
+                </p>
+                <p className="text-sm text-gray-500">
+                  <span className="font-semibold">Like Count:</span> {artifact.likeCount}
                 </p>
 
                 {/* View Detail Button */}

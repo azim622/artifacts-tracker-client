@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import AuthContext from "../../context/AuthContext";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { Helmet } from "react-helmet";
 
 const MyArtifacts = () => {
   const [artifacts, setArtifacts] = useState([]);
@@ -9,12 +11,22 @@ const MyArtifacts = () => {
 
   // Fetch the artifacts added by the logged-in user
   useEffect(() => {
-    fetch(`http://localhost:5000/artifacts?email=${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setArtifacts(data))
-      .catch((err) => {
-        console.error("Error fetching artifacts:", err);
-      });
+    // fetch(`http://localhost:5000/artifacts?email=${user.email}`)
+    //   .then((res) => res.json())
+    //   .then((data) => setArtifacts(data))
+    //   .catch((err) => {
+    //     console.error("Error fetching artifacts:", err);
+    //   });
+
+  
+    axios
+    .get(`http://localhost:5000/artifacts?email=${user.email}`, {
+      withCredentials: true, 
+    })
+    .then((res) => setArtifacts(res.data)) 
+    .catch((err) => {
+      console.error("Error fetching artifacts:", err); 
+    });
   }, [user.email]);
 
   // Handle delete functionality
@@ -70,6 +82,11 @@ const MyArtifacts = () => {
 
   return (
     <div className="container mx-auto p-6 bg-gradient-to-br from-gray-100 to-gray-300 min-h-screen">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>My Artifacts || Historical Artifacts</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <h2 className="text-4xl font-extrabold text-center mb-8 text-blue-700 animate-bounce">
         My Artifacts
       </h2>
