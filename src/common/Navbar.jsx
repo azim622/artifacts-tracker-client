@@ -14,7 +14,7 @@ const Navbar = () => {
             src="https://i.ibb.co.com/9NpC6Gp/images.jpg"
             alt=""
           />
-          <span className="text-white text-xl font-bold">SoloSphere</span>
+          <span className="text-white text-xl font-bold">Historical Artifacts Tracker</span>
         </Link>
       </div>
       <div className="flex-none">

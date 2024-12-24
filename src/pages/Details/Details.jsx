@@ -1,12 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import AuthContext from '../../context/AuthContext';
+import axios from 'axios';
 
 const Details = () => {
-  // Fetch the artifact details using loader data
   const details = useLoaderData();
   const { _id } = details;
   const { user } = useContext(AuthContext);
+  const [likeCount, setLikeCount] = useState(details.likeCount || 0);
+
+  const handleLike = async () => {
+    try {
+      const response = await axios.put(`http://localhost:5000/artifacts/${_id}/like`);
+      setLikeCount(response.data.likeCount);
+    } catch (error) {
+      console.error('Failed to like the artifact:', error);
+    }
+  };
 
   return (
     <div className="container lg:w-2/3 mx-auto p-6">
@@ -53,13 +63,13 @@ const Details = () => {
             </div>
 
             <div className="mt-6 flex items-center space-x-4">
-              <Link
-                to={`/my-liked-artifacts/${_id}`}
+              <button
+                onClick={handleLike}
                 className="px-6 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition"
               >
                 Like
-              </Link>
-              <span className="text-gray-500 font-medium">Give it a like!</span>
+              </button>
+              <span className="text-gray-500 font-medium">Likes: {likeCount}</span>
             </div>
           </div>
         </div>

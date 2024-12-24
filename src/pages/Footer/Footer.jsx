@@ -11,7 +11,7 @@ const Footer = () => {
             alt="Site Logo"
             className="w-16 h-16 rounded-full mb-2"
           />
-          <h2 className="text-2xl font-bold">SoloSphere</h2>
+          <h2 className="text-2xl font-bold">Historical Artifacts Tracker</h2>
         </div>
 
         {/* Navigation Links */}
