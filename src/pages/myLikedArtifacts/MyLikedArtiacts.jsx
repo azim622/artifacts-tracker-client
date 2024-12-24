@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import AuthContext from '../../context/AuthContext'; // Assuming you have an AuthContext for user info
+import AuthContext from '../../context/AuthContext';
 import axios from 'axios';
 
 const MyLikedArtifacts = () => {
@@ -32,7 +32,6 @@ const MyLikedArtifacts = () => {
       await axios.put(`http://localhost:5000/artifacts/${id}/unlike`, {
         email: user.email,
       });
-      // Remove the unliked artifact from the list
       setLikedArtifacts(likedArtifacts.filter((artifact) => artifact._id !== id));
     } catch (error) {
       console.error('Error unliking artifact:', error);

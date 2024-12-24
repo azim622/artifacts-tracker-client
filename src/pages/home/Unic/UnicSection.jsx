@@ -31,7 +31,7 @@ const UnicSection = () => {
 
             {/* <!-- Learn More Button --> */}
             <a
-              href="/login"
+              href="/allArtifacts"
               class="px-6 py-2 bg-white text-teal-600 rounded-lg hover:bg-teal-600 hover:text-white transition duration-300"
             >
               Learn More

@@ -63,7 +63,7 @@ const Footer = () => {
         <aside>
           <p className="text-sm">
             Copyright © {new Date().getFullYear()} - All rights reserved by{" "}
-            <span className="font-bold">SoloSphere</span>
+            <span className="font-bold">Historical Artifacts Tracker</span>
           </p>
         </aside>
        

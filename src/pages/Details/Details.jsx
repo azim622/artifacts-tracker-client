@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
-import AuthContext from '../../context/AuthContext';
-import axios from 'axios';
+import React, { useContext, useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import AuthContext from "../../context/AuthContext";
+import axios from "axios";
 
 const Details = () => {
   const details = useLoaderData();
@@ -14,28 +14,33 @@ const Details = () => {
       const response = await axios.put(`http://localhost:5000/artifacts/${_id}/like`);
       setLikeCount(response.data.likeCount);
     } catch (error) {
-      console.error('Failed to like the artifact:', error);
+      console.error("Failed to like the artifact:", error);
     }
   };
 
   return (
-    <div className="container lg:w-2/3 mx-auto p-6">
-      <h2 className="text-4xl font-extrabold text-center mb-6 text-blue-800">Artifact Details</h2>
+    <div className="container lg:w-2/3 mx-auto p-6 bg-gradient-to-br from-gray-100 to-gray-300 rounded-lg shadow-lg">
+      <h2 className="text-4xl font-extrabold text-center mb-8 text-blue-800 animate-bounce">
+        Artifact Details
+      </h2>
 
-      <div className="bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="bg-white shadow-xl rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-500">
         <div className="flex flex-col lg:flex-row p-6">
           {/* Left Section: Image */}
-          <div className="flex-shrink-0 mb-4 lg:mb-0 lg:w-1/3">
+          <div className="flex-shrink-0 mb-4 lg:mb-0 lg:w-1/3 relative">
             <img
               src={details.artifactImage}
               alt={details.artifactName}
-              className="w-full h-64 object-cover rounded-lg shadow-md"
+              className="w-full h-64 object-cover rounded-lg shadow-lg group-hover:rotate-3 group-hover:scale-110 transition-transform duration-700"
             />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-0 group-hover:opacity-70 transition-opacity duration-700"></div>
           </div>
 
           {/* Right Section: Artifact Details */}
           <div className="lg:w-2/3 lg:pl-6">
-            <h3 className="text-3xl font-semibold text-blue-900 mb-2">{details.artifactName}</h3>
+            <h3 className="text-3xl font-semibold text-blue-900 mb-4 hover:text-blue-600 transition">
+              {details.artifactName}
+            </h3>
             <p className="text-lg font-medium text-gray-700 mt-2">
               <span className="font-bold">Type:</span> {details.artifactType}
             </p>
@@ -65,12 +70,18 @@ const Details = () => {
             <div className="mt-6 flex items-center space-x-4">
               <button
                 onClick={handleLike}
-                className="px-6 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 transition"
+                className="px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-md shadow-lg hover:scale-105 transition-transform duration-300"
               >
                 Like
               </button>
               <span className="text-gray-500 font-medium">Likes: {likeCount}</span>
             </div>
+
+            <Link to="/allArtifacts">
+              <button className="mt-6 px-6 py-2 w-full bg-gradient-to-r from-green-500 to-green-700 text-white font-semibold rounded-md shadow-lg hover:scale-105 transition-transform duration-300">
+                Back to All Artifacts
+              </button>
+            </Link>
           </div>
         </div>
       </div>

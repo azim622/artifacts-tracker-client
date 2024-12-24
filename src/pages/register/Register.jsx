@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const { createUser, signInWithGoogle } = useContext(AuthContext);
-  const navigate = useNavigate(); // Correctly initialize navigate
+  const navigate = useNavigate();
   const Passregex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
   const handleSubmit = (e) => {
@@ -37,7 +37,7 @@ const Register = () => {
           title: 'Success',
           text: 'Account created successfully!',
         });
-        navigate('/'); // Redirect to the home page
+        navigate('/');
       })
       .catch((error) => {
         console.log(error.message);
@@ -60,7 +60,7 @@ const Register = () => {
           title: 'Successfully login',
           text: 'Signed in with Google successfully!',
         });
-        navigate('/'); // Redirect to the home page
+        navigate('/');
       })
       .catch((error) => {
         console.log('Error', error.message);
@@ -73,86 +73,84 @@ const Register = () => {
   };
 
   return (
-    <div className="hero bg-base-200 w-full min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left w-96">
-          <Lottie className="w-full" animationData={registerLottie}></Lottie>
+    <div className="hero bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 w-full min-h-screen flex items-center justify-center">
+      <div className="hero-content flex-col lg:flex-row-reverse shadow-2xl rounded-lg bg-white p-8">
+        <div className="w-full lg:w-1/2 flex justify-center items-center">
+          <Lottie className="w-full max-w-sm" animationData={registerLottie}></Lottie>
         </div>
-        <div className="card bg-base-100 w-full max-w-lg shrink-0 shadow-2xl p-8">
-          <h1 className="text-5xl font-bold ml-4">Register now!</h1>
+        <div className="card w-full lg:w-1/2 max-w-lg">
+          <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-6">Create Your Account</h1>
 
-          <form onSubmit={handleSubmit} className="card-body">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Name</span>
+                <span className="label-text text-lg font-medium text-gray-700">Name</span>
               </label>
               <input
                 type="text"
-                placeholder="Name"
+                placeholder="Enter your name"
                 name="name"
-                className="input input-bordered"
+                className="input input-bordered focus:ring-2 focus:ring-purple-500 focus:outline-none rounded-lg p-3"
                 required
               />
             </div>
 
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Photo URL</span>
+                <span className="label-text text-lg font-medium text-gray-700">Photo URL</span>
               </label>
               <input
                 type="text"
                 name="photo"
-                placeholder="Photo URL"
-                className="input input-bordered"
+                placeholder="Enter photo URL"
+                className="input input-bordered focus:ring-2 focus:ring-purple-500 focus:outline-none rounded-lg p-3"
                 required
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text text-lg font-medium text-gray-700">Email</span>
               </label>
               <input
                 type="email"
                 name="email"
-                placeholder="Email"
-                className="input input-bordered"
+                placeholder="Enter your email"
+                className="input input-bordered focus:ring-2 focus:ring-purple-500 focus:outline-none rounded-lg p-3"
                 required
               />
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text text-lg font-medium text-gray-700">Password</span>
               </label>
               <input
                 type="password"
                 name="password"
-                placeholder="Password"
-                className="input input-bordered"
+                placeholder="Enter your password"
+                className="input input-bordered focus:ring-2 focus:ring-purple-500 focus:outline-none rounded-lg p-3"
                 required
               />
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
+                <a href="#" className="label-text-alt link link-hover text-sm text-purple-600">Forgot password?</a>
               </label>
             </div>
             <div className="form-control mt-6">
-              <button className="btn btn-primary">Register</button>
+              <button className="btn w-full bg-purple-500 hover:bg-purple-600 text-white rounded-lg py-3 text-lg transition">Register</button>
             </div>
             <button
               type="button"
               onClick={handleSigninWithGoogle}
-              className="btn btn-block bg-green-300 rounded-none"
+              className="btn w-full bg-red-500 hover:bg-red-600 text-white rounded-lg py-3 text-lg transition mt-4 flex items-center justify-center space-x-2"
             >
-              Sign in with Google
+              <span>Sign in with Google</span>
             </button>
           </form>
-          <p className="text-center font-semibold">
-          Already have an Account ?
-          <Link className="text-red-500" to="/login">
-            logIn
-          </Link>
-        </p>
+          <p className="text-center font-semibold text-gray-600 mt-4">
+            Already have an account?
+            <Link className="text-purple-600 ml-2 underline" to="/login">
+              Log In
+            </Link>
+          </p>
         </div>
       </div>
     </div>
