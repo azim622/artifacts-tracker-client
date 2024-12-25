@@ -10,7 +10,9 @@ const MyLikedArtifacts = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/artifactLiked?email=${user?.email}`);
+        const res = await axios.get(`http://localhost:5000/artifactLiked?email=${user?.email}`,{
+          withCredentials:true
+        });
         const data = await res?.data;
 
         const uniqueArtifacts = data.filter(

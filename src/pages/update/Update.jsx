@@ -34,6 +34,15 @@ const Update = () => {
       .put(`http://localhost:5000/artifacts/${artifact._id}`, updatedArtifact)
       .then((response) => {
         if (response.data.success) {
+           Swal.fire({
+            position: "top-end",
+            icon: "info",
+            title: response.data.message,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+
+        } else {
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -44,14 +53,6 @@ const Update = () => {
           });
           Navigate('/my-artifacts')
 
-        } else {
-          Swal.fire({
-            position: "top-end",
-            icon: "info",
-            title: response.data.message,
-            showConfirmButton: false,
-            timer: 1500,
-          });
         }
       })
       .catch((error) => {
