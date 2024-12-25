@@ -105,7 +105,7 @@ The **Historical Artifacts Tracker** is a web application that allows users to b
 
 #### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-repo/historical-artifacts-tracker.git
+git clone https://github.com/programming-hero-web-course2/b10a11-client-side-azim622
 ```
 
 #### 2. Install Dependencies
@@ -123,70 +123,7 @@ npm install
 #### 3. Configure Environment Variables
 Create a `.env` file in both client and server directories.
 
-**Client `.env`**
-```env
-REACT_APP_API_URL=<Your-Server-API-URL>
-REACT_APP_FIREBASE_API_KEY=<Your-Firebase-API-Key>
-REACT_APP_AUTH_DOMAIN=<Your-Firebase-Auth-Domain>
-```
 
-**Server `.env`**
-```env
-MONGODB_URI=<Your-MongoDB-URI>
-JWT_SECRET=<Your-JWT-Secret>
-```
-
-#### 4. Start the Application
-##### Client-Side
-```bash
-cd client
-npm start
-```
-##### Server-Side
-```bash
-cd server
-npm start
-```
-
----
-
-## Deployment Instructions
-
-### Firebase Hosting
-1. Install Firebase CLI:
-   ```bash
-   npm install -g firebase-tools
-   ```
-2. Initialize Firebase:
-   ```bash
-   firebase init
-   ```
-3. Deploy:
-   ```bash
-   firebase deploy
-   ```
-
-### Vercel Hosting (Server)
-1. Install Vercel CLI:
-   ```bash
-   npm install -g vercel
-   ```
-2. Deploy:
-   ```bash
-   vercel
-   ```
-
----
-
-## Commit History Guidelines
-
-### Client-Side
-- Include **15 meaningful commits** with descriptive messages.
-
-### Server-Side
-- Include **8 meaningful commits** with descriptive messages.
-
----
 
 ## Additional Notes
 - Ensure no CORS/404/504 errors occur in production.
@@ -196,6 +133,6 @@ npm start
 ---
 
 ## Contact
-If you have any questions or need assistance, feel free to reach out at [your-email@example.com].
+If you have any questions or need assistance, feel free to reach out at [fazleazim622@gmail.com].
 
 Happy Coding!

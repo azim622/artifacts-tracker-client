@@ -11,22 +11,15 @@ const MyArtifacts = () => {
 
   // Fetch the artifacts added by the logged-in user
   useEffect(() => {
-    fetch(`http://localhost:5000/artifacts?email=${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setArtifacts(data))
-      .catch((err) => {
-        console.error("Error fetching artifacts:", err);
-      });
-
   
-    // axios
-    // .get(`http://localhost:5000/artifacts?email=${user.email}`, {
-    //   withCredentials: true, 
-    // })
-    // .then((res) => setArtifacts(res.data)) 
-    // .catch((err) => {
-    //   console.error("Error fetching artifacts:", err); 
-    // });
+    axios
+    .get(`http://localhost:5000/myArtifacts?email=${user.email}`, {
+      withCredentials: true, 
+    })
+    .then((res) => setArtifacts(res.data)) 
+    .catch((err) => {
+      console.error("Error fetching artifacts:", err); 
+    });
   }, [user.email]);
 
   // Handle delete functionality

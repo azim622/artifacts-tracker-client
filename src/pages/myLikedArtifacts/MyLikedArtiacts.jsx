@@ -31,7 +31,7 @@ const MyLikedArtifacts = () => {
     <div className="container mx-auto p-6 bg-gradient-to-br from-gray-100 to-gray-300 min-h-screen">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>My Artifacts || Historical Artifacts</title>
+        <title>My Liked Artifacts || Historical Artifacts</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <h2 className="text-4xl font-extrabold text-center mb-8 text-blue-700 animate-bounce">
@@ -72,9 +72,7 @@ const MyLikedArtifacts = () => {
                 <p className="text-sm text-gray-500 mt-2">
                   <span className="font-bold">Created At:</span> {artifact.createdAt}
                 </p>
-                <p className="text-sm text-gray-500 mt-2">
-                  <span className="font-bold">Likes:</span> {artifact.likeCount}
-                </p>
+                
               </div>
             </div>
           ))}

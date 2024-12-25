@@ -3,9 +3,11 @@ import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
 import AuthContext from '../../context/AuthContext';
 import { Helmet } from 'react-helmet';
+import { useNavigate } from 'react-router-dom';
 
 const AddArtifacts = () => {
   const {user} = useContext(AuthContext)
+  const navigate=useNavigate()
 
   const handleFormSubmit = e =>{
     e.preventDefault()
@@ -36,6 +38,8 @@ const AddArtifacts = () => {
             showConfirmButton: false,
             timer: 1500
           });
+          navigate('/my-artifacts')
+
         }
       })
       .catch((error) => {
