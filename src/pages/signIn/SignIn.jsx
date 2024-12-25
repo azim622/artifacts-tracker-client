@@ -21,13 +21,6 @@ const SignIn = () => {
 
     signInUser(email, password)
       .then((result) => {
-        console.log('sign in',result.user.email)
-        // const user = {email: result.user.email}
-        // axios.post('http://localhost:5000/jwt' , user, {withCredentials:true})
-        //  .then(res=>{
-        //   console.log(res.data)
-        //  })
-
         Swal.fire({
           icon: "success",
           title: "Welcome back!",

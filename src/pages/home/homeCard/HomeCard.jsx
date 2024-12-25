@@ -8,13 +8,13 @@ const HomeCard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const URL = "http://localhost:5000/limitArtifacts"; // Endpoint for top 6 artifacts
+        const URL = "http://localhost:5000/limitArtifacts"; 
         const res = await fetch(URL);
         if (!res.ok) {
           throw new Error("Failed to fetch artifacts.");
         }
         const data = await res.json();
-        setArtifacts(data.slice(0, 6)); // Ensure only 6 artifacts are displayed
+        setArtifacts(data.slice(0, 6));
       } catch (error) {
         console.error("Error fetching featured artifacts:", error);
       }
@@ -31,7 +31,6 @@ const HomeCard = () => {
           </h2>
         </Fade>
 
-        {/* Artifacts Cards Grid */}
         <Zoom>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {artifacts.map((artifact) => (
@@ -39,7 +38,6 @@ const HomeCard = () => {
                 key={artifact._id}
                 className="shadow-md rounded-lg p-4 bg-white transform hover:-translate-y-2 hover:shadow-xl transition-all duration-300"
               >
-                {/* Artifact Information */}
                 <img
                   src={artifact.artifactImage}
                   alt={artifact.artifactName}
@@ -72,7 +70,6 @@ const HomeCard = () => {
           </div>
         </Zoom>
 
-        {/* All Artifacts Button */}
         <Fade>
           <div className="mt-8 text-center">
             <Link to="/allArtifacts">

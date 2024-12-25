@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import axios from "axios";
 
@@ -7,48 +7,52 @@ const Details = () => {
   const details = useLoaderData();
   const { _id } = details;
   const { user } = useContext(AuthContext);
-  const [likeCount, setLikeCount] = useState(details.likeCount || 0);
-  const [totalLikes , setTotalLikes] = useState([])
-  // const navigate = useNavigate()
-  const {id} = useParams()
-  console.log('total likes',totalLikes)
+  const [totalLikes, setTotalLikes] = useState([]);
+  const { id } = useParams();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`http://localhost:5000/likesCount/${_id}`);
+        const data = res.data;
+        setTotalLikes(data);
+      } catch (error) {
+        console.error("Failed to fetch like data:", error);
+      }
+    };
+    fetchData();
+  }, [_id]);
 
   const handleLike = async () => {
-    const likedData= {
-      artifacts_id : id,
+    const likedData = {
+      artifacts_id: id,
       userName: user?.displayName,
       userPhoto: user?.photoURL,
-      userEmail:user?.email
-    }
+      userEmail: user?.email,
+    };
+
     try {
-      // const response = await axios.put(`http://localhost:5000/artifacts/${_id}/like`);
-      const response = await axios.post('http://localhost:5000/artifactLiked', likedData)
-      setTotalLikes(response.data.updatedLikes || [...totalLikes, likedData]);
-      // navigate('/my-liked-artifacts')
+      const alreadyLiked = totalLikes.some(
+        (like) => like.userEmail === user?.email
+      );
+
+      if (alreadyLiked) {
+        await axios.delete(`http://localhost:5000/artifactLike/${id}`, {
+          data: likedData,
+        });
+
+        setTotalLikes(totalLikes.filter((like) => like.userEmail !== user?.email));
+      } else {
+        const response = await axios.post(
+          "http://localhost:5000/artifactLiked",
+          likedData
+        );
+        setTotalLikes(response.data.updatedLikes); 
+      }
     } catch (error) {
-      console.error("Failed to like the artifact:", error);
+      console.error("Failed to like/unlike the artifact:", error);
     }
   };
-
-  useEffect(()=>{
-    const fetchData = async ()=>{
-      try{
-        const res = await axios.get(`http://localhost:5000/likesCount/${_id}`)
-        const data = await res?.data
-        console.log(data)
-        setTotalLikes(data)
-  
-      }
-      catch (error) {
-        console.error("Failed to like the artifact:", error);
-      }
-    }
-    fetchData()
-
-  },[])
-
-
-
 
   return (
     <div className="container lg:w-2/3 mx-auto p-6 bg-gradient-to-br from-gray-100 to-gray-300 rounded-lg shadow-lg">
@@ -58,7 +62,6 @@ const Details = () => {
 
       <div className="bg-white shadow-xl rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-500">
         <div className="flex flex-col lg:flex-row p-6">
-          {/* Left Section: Image */}
           <div className="flex-shrink-0 mb-4 lg:mb-0 lg:w-1/3 relative">
             <img
               src={details.artifactImage}
@@ -68,7 +71,6 @@ const Details = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-0 group-hover:opacity-70 transition-opacity duration-700"></div>
           </div>
 
-          {/* Right Section: Artifact Details */}
           <div className="lg:w-2/3 lg:pl-6">
             <h3 className="text-3xl font-semibold text-blue-900 mb-4 hover:text-blue-600 transition">
               {details.artifactName}
@@ -102,16 +104,22 @@ const Details = () => {
             <div className="mt-6 flex items-center space-x-4">
               <button
                 onClick={handleLike}
-                className="px-6 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-md shadow-lg hover:scale-105 transition-transform duration-300"
+                className={`px-6 py-2 ${
+                  totalLikes.some((like) => like.userEmail === user?.email)
+                    ? 'bg-red-500'
+                    : 'bg-blue-500' 
+                } text-white rounded-md shadow-lg hover:scale-105 transition-transform duration-300`}
               >
-                Like
+                {totalLikes.some((like) => like.userEmail === user?.email)
+                  ? 'Unlike' 
+                  : 'Like'}
               </button>
-              <span className="text-gray-500 font-medium">Likes: {totalLikes?totalLikes.length:0}</span>
+              <span className="text-gray-500 font-medium">Likes: {totalLikes.length}</span>
             </div>
 
             <Link to="/my-liked-artifacts">
               <button className="mt-6 px-6 py-2 w-full bg-gradient-to-r from-green-500 to-green-700 text-white font-semibold rounded-md shadow-lg hover:scale-105 transition-transform duration-300">
-              My liked Artifacts
+                My liked Artifacts
               </button>
             </Link>
           </div>

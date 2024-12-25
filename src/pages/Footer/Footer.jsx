@@ -4,7 +4,6 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-10">
       <div className="container mx-auto px-4 text-center">
-        {/* Logo and Site Name */}
         <div className="flex flex-col items-center mb-6">
           <img
             src="https://i.ibb.co/9NpC6Gp/images.jpg"
@@ -14,7 +13,6 @@ const Footer = () => {
           <h2 className="text-2xl font-bold">Historical Artifacts Tracker</h2>
         </div>
 
-        {/* Navigation Links */}
         <nav className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
           <a href="#" className="hover:text-fuchsia-400 transition-colors">About Us</a>
           <a href="#" className="hover:text-fuchsia-400 transition-colors">Contact</a>
@@ -22,7 +20,6 @@ const Footer = () => {
           <a href="#" className="hover:text-fuchsia-400 transition-colors">Press Kit</a>
         </nav>
 
-        {/* Social Media Links */}
         <nav className="flex justify-center gap-6 mb-6">
           <a href="#" className="hover:text-fuchsia-400 transition-colors">
             <svg

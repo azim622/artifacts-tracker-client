@@ -24,12 +24,12 @@ const AddArtifacts = () => {
     const email = form.email.value;
 
     const artifacts ={artifactName , artifactImage , artifactType , historicalContext, createdAt ,discoveredAt ,discoveredBy,presentLocation, addedBy ,email}
-    console.log(artifacts)
+    // console.log(artifacts)
 
     
     axios.post('http://localhost:5000/artifacts', artifacts)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         if(response.data.insertedId){
           Swal.fire({
             position: "top-end",

@@ -31,7 +31,7 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         Swal.fire({
           icon: 'success',
           title: 'Success',
@@ -40,7 +40,7 @@ const Register = () => {
         navigate('/');
       })
       .catch((error) => {
-        console.log(error.message);
+        // console.log(error.message);
         Swal.fire({
           icon: 'error',
           title: 'Error',
@@ -48,13 +48,13 @@ const Register = () => {
         });
       });
 
-    console.log(name, photo, email, password);
+    // console.log(name, photo, email, password);
   };
 
   const handleSigninWithGoogle = () => {
     signInWithGoogle()
       .then((result) => {
-        console.log(result.user);
+        // console.log(result.user);
         Swal.fire({
           icon: 'success',
           title: 'Successfully login',
@@ -63,7 +63,7 @@ const Register = () => {
         navigate('/');
       })
       .catch((error) => {
-        console.log('Error', error.message);
+        // console.log('Error', error.message);
         Swal.fire({
           icon: 'error',
           title: 'Error',

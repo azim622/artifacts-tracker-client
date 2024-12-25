@@ -21,7 +21,7 @@ const MyLikedArtifacts = () => {
         );
         setArtifacts(uniqueArtifacts);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     fetchData();

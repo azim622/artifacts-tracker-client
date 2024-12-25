@@ -81,7 +81,7 @@ const AuthProvider = ({ children }) => {
               withCredentials: true,
             });
             const data = await res?.data;
-            console.log("Logout response from server:", data);
+            // console.log("Logout response from server:", data);
             setLoading(false);
           };
           fetchData();
@@ -91,7 +91,7 @@ const AuthProvider = ({ children }) => {
         }
       }
 
-      console.log("Authentication state changed:", currentUser);
+      // console.log("Authentication state changed:", currentUser);
       // setLoading(false);
     });
 
