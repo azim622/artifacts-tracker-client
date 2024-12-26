@@ -13,7 +13,7 @@ const MyArtifacts = () => {
   useEffect(() => {
   
     axios
-    .get(`http://localhost:5000/myArtifacts?email=${user.email}`, {
+    .get(`https://historical-artifacts-server-sepia.vercel.app/myArtifacts?email=${user.email}`, {
       withCredentials: true, 
     })
     .then((res) => setArtifacts(res.data)) 
@@ -34,7 +34,7 @@ const MyArtifacts = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/artifacts/${id}`, {
+        fetch(`https://historical-artifacts-server-sepia.vercel.app/artifacts/${id}`, {
           method: "DELETE",
         })
           .then((res) => {

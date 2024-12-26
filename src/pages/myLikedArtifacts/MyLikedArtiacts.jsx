@@ -10,7 +10,7 @@ const MyLikedArtifacts = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/artifactLiked?email=${user?.email}`,{
+        const res = await axios.get(`https://historical-artifacts-server-sepia.vercel.app/artifactLiked?email=${user?.email}`,{
           withCredentials:true
         });
         const data = await res?.data;
@@ -22,7 +22,7 @@ const MyLikedArtifacts = () => {
         setArtifacts(uniqueArtifacts);
       } catch (error) {
         // console.log(error);
-      }
+    }
     };
     fetchData();
   }, []);

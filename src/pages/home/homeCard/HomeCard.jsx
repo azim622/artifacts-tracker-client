@@ -8,7 +8,7 @@ const HomeCard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const URL = "http://localhost:5000/limitArtifacts"; 
+        const URL = "https://historical-artifacts-server-sepia.vercel.app/limitArtifacts"; 
         const res = await fetch(URL);
         if (!res.ok) {
           throw new Error("Failed to fetch artifacts.");

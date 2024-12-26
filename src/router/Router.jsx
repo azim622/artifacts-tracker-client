@@ -36,7 +36,7 @@ import Error from "../pages/Erro/Error";
         {
             path:"allArtifacts",
             element:<AllArtifacts></AllArtifacts>,
-            loader: ()=> fetch('http://localhost:5000/artifacts')
+            loader: ()=> fetch('https://historical-artifacts-server-sepia.vercel.app/artifacts')
         },
         {
             path:"add-artifacts",
@@ -52,7 +52,7 @@ import Error from "../pages/Erro/Error";
           path: "updateArtifacts/:id",
           element: <Update></Update>, // Ensure the Update component is functional
           loader: ({ params }) =>
-            fetch(`http://localhost:5000/artifacts/${params.id}`), // Backend must return the artifact data
+            fetch(`https://historical-artifacts-server-sepia.vercel.app/artifacts/${params.id}`), // Backend must return the artifact data
         },
         {
             path:"my-liked-artifacts",
@@ -61,7 +61,7 @@ import Error from "../pages/Erro/Error";
         {
             path:"details/:id",
             element:<PrivetRoutes><Details></Details></PrivetRoutes>,
-            loader:({params})=>fetch(`http://localhost:5000/artifacts/${params.id}`)
+            loader:({params})=>fetch(`https://historical-artifacts-server-sepia.vercel.app/artifacts/${params.id}`)
         },
       ]
     },

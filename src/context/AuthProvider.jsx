@@ -37,9 +37,10 @@ const AuthProvider = ({ children }) => {
   // Function to log out
   const logOut = async () => {
     setLoading(true);
+    await signOut(auth)
     try {
       await axios.post(
-        "http://localhost:5000/logout",
+        "https://historical-artifacts-server-sepia.vercel.app/logout",
         {},
         { withCredentials: true }
       );
@@ -61,7 +62,7 @@ const AuthProvider = ({ children }) => {
         try {
           const fetchData = async () => {
             const res = await axios.post(
-              "http://localhost:5000/jwt",
+              "https://historical-artifacts-server-sepia.vercel.app/jwt",
               userInfo,
               { withCredentials: true }
             );
@@ -77,7 +78,7 @@ const AuthProvider = ({ children }) => {
       } else {
         try {
           const fetchData = async () => {
-            const res = await axios.post("http://localhost:5000/logout", {
+            const res = await axios.post("https://historical-artifacts-server-sepia.vercel.app/logout", {
               withCredentials: true,
             });
             const data = await res?.data;

@@ -27,7 +27,7 @@ const AddArtifacts = () => {
     // console.log(artifacts)
 
     
-    axios.post('http://localhost:5000/artifacts', artifacts)
+    axios.post('https://historical-artifacts-server-sepia.vercel.app/artifacts', artifacts)
       .then((response) => {
         // console.log(response.data);
         if(response.data.insertedId){

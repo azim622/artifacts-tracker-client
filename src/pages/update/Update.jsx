@@ -31,7 +31,7 @@ const Update = () => {
     };
 
     axios
-      .put(`http://localhost:5000/artifacts/${artifact._id}`, updatedArtifact)
+      .put(`https://historical-artifacts-server-sepia.vercel.app/artifacts/${artifact._id}`, updatedArtifact)
       .then((response) => {
         if (response.data.success) {
            Swal.fire({
