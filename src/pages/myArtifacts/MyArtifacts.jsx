@@ -9,7 +9,6 @@ const MyArtifacts = () => {
   const [artifacts, setArtifacts] = useState([]);
   const { user } = useContext(AuthContext);
 
-  // Fetch the artifacts added by the logged-in user
   useEffect(() => {
   
     axios

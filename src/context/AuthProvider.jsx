@@ -13,18 +13,16 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null); // Initialize user as null
-  const [loading, setLoading] = useState(true); // Start with true for initial loading state
+  const [user, setUser] = useState(null); 
+  const [loading, setLoading] = useState(true);
 
-  const googleProvider = new GoogleAuthProvider(); // Initialize GoogleAuthProvider
+  const googleProvider = new GoogleAuthProvider();
 
-  // Function to create a user
   const createUser = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  // Function to sign in a user with email and password
   const signInUser = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
@@ -110,7 +108,7 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={authInfo}>
-      {children} {/* Render children only when loading is complete */}
+      {children}
     </AuthContext.Provider>
   );
 };

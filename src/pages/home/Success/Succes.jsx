@@ -6,9 +6,9 @@ import { useEffect } from "react";
 const Success = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1200, // Animation duration in milliseconds
-      offset: 100, // Trigger animations 100px from the element
-      once: true, // Run animation only once
+      duration: 1200, 
+      offset: 100,
+      once: true,
     });
   }, []);
 

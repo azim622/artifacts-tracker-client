@@ -9,7 +9,6 @@ const UnicSection = () => {
         </h2>
 
         <div class="flex flex-col items-center sm:flex-row justify-between">
-          {/* <!-- Artifact Image --> */}
           <div class="w-full sm:w-1/2 mb-6 sm:mb-0">
             <img
               src="https://i.ibb.co.com/D9Qrw1P/Rosetta-Stone.jpg"
@@ -18,7 +17,6 @@ const UnicSection = () => {
             />
           </div>
 
-          {/* <!-- Artifact Details --> */}
           <div class="w-full sm:w-1/2 sm:pl-6">
             <h3 class="text-2xl text-white font-bold mb-4">Rosetta Stone</h3>
             <p class="text-lg text-white mb-4">
@@ -29,7 +27,6 @@ const UnicSection = () => {
               Egyptian hieroglyphs, unlocking the secrets of ancient Egypt.
             </p>
 
-            {/* <!-- Learn More Button --> */}
             <a
               href="/allArtifacts"
               class="px-6 py-2 bg-white text-teal-600 rounded-lg hover:bg-teal-600 hover:text-white transition duration-300"

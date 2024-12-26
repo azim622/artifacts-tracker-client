@@ -35,7 +35,6 @@ const AllArtifacts = () => {
         All Artifacts : {artifacts.length}
       </h2>
 
-      {/* Search Bar */}
       <div className="mb-6 w-1/2 mx-auto">
         <input
           type="text"
@@ -46,7 +45,6 @@ const AllArtifacts = () => {
         />
       </div>
 
-      {/* Artifacts Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredArtifacts.length > 0 ? (
           filteredArtifacts.map((artifact) => (
@@ -73,7 +71,6 @@ const AllArtifacts = () => {
                   Created At: {artifact.createdAt}
                 </p>
 
-                {/* View Detail Button */}
                 <Link
                   to={`/details/${artifact._id}`}
                   className="btn btn-primary mt-4 w-full text-center"

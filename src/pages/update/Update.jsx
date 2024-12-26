@@ -4,14 +4,14 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const Update = () => {
-  const update = useLoaderData(); // Loaded artifact details
+  const update = useLoaderData();
   const [artifact, setArtifact] = useState(update);
   const Navigate = useNavigate()
 
 
   useEffect(() => {
     if (update) {
-      setArtifact(update); // Set initial form values from the loaded artifact
+      setArtifact(update);
     }
   }, [update]);
 

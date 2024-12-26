@@ -58,7 +58,6 @@ const Details = () => {
 
       <div className="bg-white shadow-xl rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-500">
         <div className="flex flex-col lg:flex-row p-6">
-          {/* Left Section: Image */}
           <div className="flex-shrink-0 mb-4 lg:mb-0 lg:w-1/3 relative">
             <img
               src={details.artifactImage}
@@ -68,7 +67,6 @@ const Details = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-0 group-hover:opacity-70 transition-opacity duration-700"></div>
           </div>
 
-          {/* Right Section: Artifact Details */}
           <div className="lg:w-2/3 lg:pl-6">
             <h3 className="text-3xl font-semibold text-blue-900 mb-4 hover:text-blue-600 transition">
               {details.artifactName}

@@ -38,14 +38,12 @@ const MyLikedArtifacts = () => {
         My Artifacts
       </h2>
 
-      {/* Show a message if no artifacts are found */}
       {artifacts.length === 0 ? (
         <p className="text-center text-lg text-gray-500 animate-pulse">
           You have not liked Count artifacts yet.
         </p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {/* Display all artifacts */}
           {artifacts.map((artifact) => (
             <div
               key={artifact._id}
