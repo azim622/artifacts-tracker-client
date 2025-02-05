@@ -6,6 +6,14 @@
 
 ---
 
+## 🖼️ Project Screenshot
+
+https://i.ibb.co.com/5WZnbDtW/Capture.png
+
+*(Replace `assets/screenshot.png` with the actual screenshot path in your repo)*
+
+---
+
 ## 🚀 Key Features
 
 ### 🏠 General Features
@@ -66,4 +74,3 @@
 ### ✅ 1. Clone the Repository
 ```bash
 git clone https://github.com/azim622/historical-artifacts-tracker.git
-
