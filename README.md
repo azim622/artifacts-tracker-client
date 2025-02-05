@@ -6,9 +6,11 @@
 
 ---
 
+
 ## 🖼️ Project Screenshot
 
-https://i.ibb.co.com/5WZnbDtW/Capture.png
+![Historical Artifacts Tracker Screenshot](https://i.ibb.co/5WZnbDt/Capture.png)
+
 
 *(Replace `assets/screenshot.png` with the actual screenshot path in your repo)*
 
