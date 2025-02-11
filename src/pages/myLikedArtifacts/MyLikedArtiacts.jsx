@@ -35,7 +35,7 @@ const MyLikedArtifacts = () => {
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <h2 className="text-4xl font-extrabold text-center mb-8 text-blue-700 animate-bounce">
-        My Artifacts
+        My Liked Artifacts
       </h2>
 
       {artifacts.length === 0 ? (

@@ -5,6 +5,7 @@ import HomeCard from "./homeCard/HomeCard";
 import Success from "./Success/Succes";
 import UnicSection from "./Unic/UnicSection";
 import { Helmet } from "react-helmet";
+import NewsLatter from "./NewsLatter/NewsLatter";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
         <HomeCard></HomeCard>
         <UnicSection></UnicSection>
         <Success></Success>
+        <NewsLatter></NewsLatter>
       </div>
     </div>
   );
