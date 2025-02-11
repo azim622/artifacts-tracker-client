@@ -72,10 +72,10 @@ const AllArtifacts = () => {
 
       {/* Sorting Buttons - Side by Side with Primary Color */}
       <div className="flex justify-center items-center gap-4 mb-6">
-        <button onClick={handleAscSort} className="btn bg-primary text-white px-4 py-2 rounded-md">
+        <button onClick={handleAscSort} className="btn bg-primary font-semibold text-white px-8 py-2 rounded-md">
           Asc
         </button>
-        <button onClick={handleDscSort} className="btn bg-primary text-white px-4 py-2 rounded-md">
+        <button onClick={handleDscSort} className="btn bg-primary font-semibold text-white px-8 py-2 rounded-md">
           Dsc
         </button>
       </div>

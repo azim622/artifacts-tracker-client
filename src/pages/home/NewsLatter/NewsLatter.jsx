@@ -3,7 +3,7 @@ import { Fade } from "react-awesome-reveal";
 
 const NewsLatter = () => {
     return (
-        <div className="bg-gray-100 dark:bg-gray-800 py-16 mb-14 rounded-lg px-4">
+        <div className="bg-gradient-to-r from-blue-500 to-teal-400 py-16 mb-14 rounded-lg px-4">
             <div className="max-w-5xl mx-auto text-center">
                 <Fade>
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">

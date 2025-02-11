@@ -8,8 +8,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 left-0 w-full z-50 bg-primary shadow-lg">
-      <div className="container mx-auto flex justify-between items-center py-3 px-4 md:px-8">
+    <nav className="fixed top-0 left-0 w-screen z-50 bg-primary shadow-lg">
+      <div className="w-full max-w-7xl mx-auto flex justify-between items-center py-3 px-4 md:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <img
@@ -17,7 +17,9 @@ const Navbar = () => {
             src="https://i.ibb.co.com/9NpC6Gp/images.jpg"
             alt="Logo"
           />
-          <span className="text-white text-lg md:text-xl font-bold">Historical Artifacts Tracker</span>
+          <span className="text-white text-lg md:text-xl font-bold">
+            Historical Artifacts Tracker
+          </span>
         </Link>
 
         {/* Hamburger Menu (Mobile) */}
@@ -58,16 +60,16 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-primary-dark text-white py-3 space-y-3">
-          <Link to="/" className="block text-center" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link to="/allArtifacts" className="block text-center" onClick={() => setIsOpen(false)}>All Artifacts</Link>
-          {user && <Link to="/add-artifacts" className="block text-center" onClick={() => setIsOpen(false)}>Add Artifacts</Link>}
-          {!user && <Link to="/login" className="block text-center" onClick={() => setIsOpen(false)}>Login</Link>}
+        <div className="w-screen bg-primary-dark text-white py-3 space-y-3 text-center">
+          <Link to="/" className="block" onClick={() => setIsOpen(false)}>Home</Link>
+          <Link to="/allArtifacts" className="block" onClick={() => setIsOpen(false)}>All Artifacts</Link>
+          {user && <Link to="/add-artifacts" className="block" onClick={() => setIsOpen(false)}>Add Artifacts</Link>}
+          {!user && <Link to="/login" className="block" onClick={() => setIsOpen(false)}>Login</Link>}
           {user && (
             <>
               <hr className="border-gray-400 mx-4" />
-              <Link to="/my-artifacts" className="block text-center" onClick={() => setIsOpen(false)}>My Artifacts</Link>
-              <Link to="/my-liked-artifacts" className="block text-center" onClick={() => setIsOpen(false)}>My Liked Artifacts</Link>
+              <Link to="/my-artifacts" className="block" onClick={() => setIsOpen(false)}>My Artifacts</Link>
+              <Link to="/my-liked-artifacts" className="block" onClick={() => setIsOpen(false)}>My Liked Artifacts</Link>
               <button onClick={logOut} className="bg-gray-200 text-black block text-center hover:bg-gray-300 w-full py-2 mt-2 rounded">
                 Logout
               </button>
