@@ -24,9 +24,9 @@ const HomeCard = () => {
 
   return (
     <div>
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4 py-14">
         <Fade>
-          <h2 className="text-4xl font-extrabold text-center mb-8 text-blue-700">
+          <h2 className="text-4xl font-extrabold text-center mb-10 text-blue-700">
             Featured Artifacts
           </h2>
         </Fade>

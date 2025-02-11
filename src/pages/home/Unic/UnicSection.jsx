@@ -3,7 +3,7 @@ import React from "react";
 const UnicSection = () => {
   return (
     <div>
-      <section class="container mx-auto p-6 my-10 bg-gradient-to-r from-blue-500 to-teal-400 rounded-lg shadow-lg">
+      <section class="container mx-auto p-6 mb-14 bg-gradient-to-r from-blue-500 to-teal-400 rounded-lg shadow-lg">
         <h2 class="text-3xl text-center text-white font-semibold mb-6">
           Artifact of the Week
         </h2>

@@ -13,8 +13,8 @@ const Success = () => {
   }, []);
 
   return (
-    <div className="bg-gradient-to-br from-green-200 via-green-600 to-blue-900 py-16">
-      <div className="container mx-auto text-center text-white">
+    <div className="bg-gradient-to-br from-green-200 via-green-600 to-blue-900 py-16 mb-14 rounded-lg">
+      <div className="container mx-auto text-center text-white px-6">
         <h2
           className="text-4xl font-extrabold mb-6"
           data-aos="fade-up"

@@ -11,7 +11,7 @@ const Update = () => {
 
   useEffect(() => {
     if (update) {
-      setArtifact(update);
+      setArtifact(update); 
     }
   }, [update]);
 
@@ -19,7 +19,7 @@ const Update = () => {
     e.preventDefault();
     const form = e.target;
 
-    const updatedArtifact = {
+    const updatedArtifact = { 
       artifactName: form.artifactName.value,
       artifactImage: form.artifactImage.value,
       artifactType: form.artifactType.value,
