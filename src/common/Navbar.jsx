@@ -8,8 +8,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 left-0 w-full z-50 bg-fuchsia-700 shadow-lg px-4 md:px-8 lg:px-12">
-      <div className="flex justify-between items-center py-3">
+    <nav className="sticky top-0 left-0 w-full z-50 bg-primary shadow-lg">
+      <div className="container mx-auto flex justify-between items-center py-3 px-4 md:px-8">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
           <img
@@ -58,7 +58,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-fuchsia-800 text-white py-3 space-y-3">
+        <div className="md:hidden bg-primary-dark text-white py-3 space-y-3">
           <Link to="/" className="block text-center" onClick={() => setIsOpen(false)}>Home</Link>
           <Link to="/allArtifacts" className="block text-center" onClick={() => setIsOpen(false)}>All Artifacts</Link>
           {user && <Link to="/add-artifacts" className="block text-center" onClick={() => setIsOpen(false)}>Add Artifacts</Link>}
