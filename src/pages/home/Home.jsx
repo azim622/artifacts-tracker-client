@@ -15,7 +15,9 @@ const Home = () => {
         <title>Home || Historical Artifacts</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
+      
       <div>
+        
         <Banner></Banner>
         <Outlet></Outlet>
         <HomeCard></HomeCard>
