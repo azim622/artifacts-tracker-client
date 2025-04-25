@@ -10,7 +10,7 @@ const HeroSection= () => {
           transition={{ duration: 0.8 }}
         >
           <img
-            src="https://i.ibb.co/0X2nswD/historical-artifacts.png"
+            src="https://i.ibb.co.com/SxnpBVt/images-2.jpg"
             alt="Historical Artifacts"
             className="rounded-2xl shadow-lg"
           />
