@@ -6,6 +6,7 @@ import Success from "./Success/Succes";
 import UnicSection from "./Unic/UnicSection";
 import { Helmet } from "react-helmet";
 import NewsLatter from "./NewsLatter/NewsLatter";
+import HeroSection from "./heroSection/HeroSection";
 
 const Home = () => {
   return (
@@ -22,6 +23,7 @@ const Home = () => {
         <Outlet></Outlet>
         <HomeCard></HomeCard>
         <UnicSection></UnicSection>
+        <HeroSection></HeroSection>
         <Success></Success>
         <NewsLatter></NewsLatter>
       </div>
