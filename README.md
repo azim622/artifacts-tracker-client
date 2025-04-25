@@ -1,55 +1,51 @@
 # 📜 Historical Artifacts Tracker
 
-📌 A web application for exploring, adding, and managing historical artifacts.
+🔍 A full-stack web application that allows users to explore, contribute, and manage historical artifacts in an engaging, interactive way.
 
-🔗 **Live URL:** [Historical Artifacts Tracker](https://histrorical-artifacts-tracker.web.app)
+🔗 **Live Site:** [Historical Artifacts Tracker](https://histrorical-artifacts-tracker.web.app)
 
 ---
 
-
-## 🖼️ Project Screenshot
+## 🖼️ Screenshot
 
 ![Historical Artifacts Tracker Screenshot](https://i.ibb.co/5WZnbDt/Capture.png)
 
-
-*(Replace `assets/screenshot.png` with the actual screenshot path in your repo)*
-
 ---
 
-## 🚀 Key Features
+## 🚀 Features
 
-### 🏠 General Features
-- ✅ Eye-catching **banner/slider** with historical themes
-- ✅ **Featured artifacts** – Showcases the six most-liked artifacts
-- ✅ **Fully responsive** – Optimized for mobile, tablet, and desktop
-- ✅ **Dynamic titles** – Updates based on the current page
-- ✅ **Custom 404 page** – Handles unmatched routes gracefully
+### 🏠 General
+- 🎯 Eye-catching **Hero Banner / Slider**
+- 🏺 **Featured Artifacts** – Shows the top 6 most-liked artifacts
+- 📱 **Responsive Design** – Works seamlessly on mobile, tablet, and desktop
+- 🧭 **Dynamic Page Titles**
+- 🚫 Custom **404 Not Found Page**
 
-### 🔐 Authentication System
-- ✅ **Secure login** with **email/password** & **Google login**
-- ✅ **Register with validation** (Password: Uppercase, lowercase, 6+ characters)
-- ✅ **Error handling** for login/registration failures
+### 🔐 Authentication
+- 🔐 **Email/Password & Google Login**
+- 🧪 Password validation (uppercase, lowercase, min 6 characters)
+- ❗ Proper **error handling** for login and register flows
 
-### 🏺 Artifacts Management
-- ✅ **Browse & Search Artifacts** – View artifacts in an intuitive layout
-- ✅ **Add New Artifacts** *(Private Route)* – Upload artifacts with form validation
-- ✅ **Detailed Artifact Page** – View artifact details with a **like/dislike toggle**
-- ✅ **My Artifacts** *(Private Route)* – View & manage artifacts **added by you**
-- ✅ **Liked Artifacts Page** – See all artifacts you’ve liked
+### 🏺 Artifact Functionality
+- 🔍 **Search and Browse Artifacts** easily
+- ➕ **Add New Artifact** *(Private Route)* with proper form validation
+- 📝 **Detailed Artifact View** with **like/dislike toggle**
+- 👤 **My Artifacts** *(Private Route)* – Manage your submitted artifacts
+- ❤️ **Liked Artifacts** – View all liked items in one place
 
-### 🔔 Notifications & Security
-- ✅ **SweetAlert & Toasts** – Display success/error messages
-- ✅ **Loading Spinner** – Ensures smooth UI transitions
-- ✅ **JWT Authentication** – Secure private routes
-- ✅ **Environment Variables** – Firebase & MongoDB credentials hidden
+### 🔔 UI/UX & Security
+- ✅ **SweetAlert2 & Toast Notifications**
+- ⏳ **Loading Spinners** for smoother navigation
+- 🔑 **JWT Authentication** to secure private routes
+- 🛡️ **Environment Variables** for credentials
 
 ### 🌍 Deployment
-- ✅ **Client-Side:** Firebase
-- ✅ **Server-Side:** Vercel
+- 🔸 **Client:** Firebase Hosting
+- 🔹 **Server:** Vercel Deployment
 
 ---
 
-## 🛠️ Tech Stack & Tools
+## 🛠️ Tech Stack
 
 ### 🌐 Frontend
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -63,16 +59,18 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=json-web-tokens&logoColor=white)
 
-### 📦 Other Tools & Libraries
-- ✅ **Axios** – For API calls
-- ✅ **SweetAlert** – For interactive alerts
-- ✅ **React Tooltip** – For user-friendly tooltips
-- ✅ **Dotenv** – To manage environment variables
+### 📦 Tools & Libraries
+- 🔧 **Axios** – API communication
+- 🎉 **SweetAlert2** – Alerts & prompts
+- 💬 **React Tooltip**
+- 🔐 **Dotenv** – Manage .env credentials
 
 ---
 
-## ⚡ Getting Started
+## ⚙️ Getting Started
 
-### ✅ 1. Clone the Repository
+### 🔧 1. Clone the Repository
+
 ```bash
 git clone https://github.com/azim622/historical-artifacts-tracker.git
+cd historical-artifacts-tracker
