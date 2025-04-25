@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
-const HeroSection= () => {
+const HeroSection = () => {
   return (
-    <section className="bg-blue-50 dark:bg-gray-900 py-16 px-4">
+    <section className="bg-sky-100 dark:bg-gray-900 py-16 px-4">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
